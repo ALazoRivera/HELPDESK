@@ -1,4 +1,4 @@
-<h1>Nuevo Ticket</h1><?php
+<?php
 	require_once("../../config/conexion.php");
 	if(isset($_SESSION["usu_id"])){
 ?>
