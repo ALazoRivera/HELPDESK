@@ -63,7 +63,6 @@
 
                         </fieldset>
                     </div>
-K
                 </div>
             </div>
 
