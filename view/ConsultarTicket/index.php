@@ -4,7 +4,6 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<head>
 		<?php require_once("../MainHead/head.php");?>
 		<title>AnderCode</>::Consultar Ticket</title>
 	</head>
@@ -43,6 +42,8 @@
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Creación</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Soporte</th>
 							<th class="text-center" style="width: 5%;"></th>
 						</tr>
 					</thead>
@@ -55,8 +56,10 @@
 		</div>
 	</div>
 	<!-- Contenido -->
+	<?php require_once("modalasignar.php");?>
 
 	<?php require_once("../MainJs/js.php");?>
+	
 	<script type="text/javascript" src="consultarticket.js"></script>
 	
 </body>
