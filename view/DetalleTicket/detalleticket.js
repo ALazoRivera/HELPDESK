@@ -96,6 +96,7 @@ $(document).ready(function(){
             }
         }
     }).DataTable();
+
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -148,6 +149,11 @@ $(document).on("click","#btncerrarticket", function(){
 
             }); 
 
+            /* $.post("../../controller/email.php?op=ticket_cerrado", {tick_id : tick_id}, function (data) {
+
+            }); */
+
+
             listardetalle(tick_id);
 
             swal({
@@ -174,6 +180,7 @@ function listardetalle(tick_id){
         $('#lblnomidticket').html("Detalle Ticket - "+data.tick_id);
 
         $('#cat_nom').val(data.cat_nom);
+        $('#cats_nom').val(data.cats_nom);
         $('#tick_titulo').val(data.tick_titulo);
         $('#tickd_descripusu').summernote ('code',data.tick_descrip);
 

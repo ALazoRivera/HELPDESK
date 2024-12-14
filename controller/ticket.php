@@ -12,7 +12,7 @@
     switch($_GET["op"]){
         
         case "insert":
-            $datos=$ticket->insert_ticket($_POST["usu_id"],$_POST["cat_id"],$_POST["tick_titulo"],$_POST["tick_descrip"]);
+            $datos=$ticket->insert_ticket($_POST["usu_id"],$_POST["cat_id"],$_POST["cats_id"],$_POST["tick_titulo"],$_POST["tick_descrip"]);
             if (is_array($datos)==true and count($datos)>0){
                 foreach ($datos as $row){
                     $output["tick_id"] = $row["tick_id"];
@@ -216,6 +216,7 @@
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
                     $output["cat_nom"] = $row["cat_nom"];
+                    $output["cats_nom"] = $row["cats_nom"];
                 }
                 echo json_encode($output);
             }   
