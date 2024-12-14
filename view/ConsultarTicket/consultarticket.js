@@ -37,6 +37,7 @@ $(document).ready(function(){
                     console.log(e.responseText);	
                 }
             },
+            "ordering": false,
             "bDestroy": true,
             "responsive": true,
             "bInfo":true,
@@ -148,8 +149,44 @@ function guardar(e){
         contentType: false,
         processData: false,
         success: function(datos){
+
+
             $("#modalasignar").modal('hide');
+
+            
             $('#ticket_data').DataTable().ajax.reload();
+
+
+
+        }
+    });
+}
+
+function CambiarEstado(tick_id){
+    swal({
+        title: "HelpDesk",
+        text: "Esta seguro de Reabrir el Ticket?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-warning",
+        confirmButtonText: "Si",
+        cancelButtonText: "No",
+        closeOnConfirm: false
+    },
+    function(isConfirm) {
+        if (isConfirm) {
+            $.post("../../controller/ticket.php?op=reabrir", {tick_id : tick_id,usu_id : usu_id}, function (data) {
+
+            });
+
+            $('#ticket_data').DataTable().ajax.reload();	
+
+            swal({
+                title: "HelpDesk!",
+                text: "Ticket Abierto.",
+                type: "success",
+                confirmButtonClass: "btn-success"
+            });
         }
     });
 }
