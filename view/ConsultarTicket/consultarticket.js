@@ -13,7 +13,7 @@ $(document).ready(function(){
     $.post("../../controller/usuario.php?op=combo", function (data) {
         $('#usu_asig').html(data);
     });
-    
+
     if (rol_id==1){
         tabla=$('#ticket_data').dataTable({
             "aProcessing": true,
@@ -149,15 +149,19 @@ function guardar(e){
         contentType: false,
         processData: false,
         success: function(datos){
+            /* var tick_id = $('#tick_id').val();
+            $.post("../../controller/email.php?op=ticket_asignado", {tick_id : tick_id}, function (data) {
 
+            });
+
+            $.post("../../controller/whatsapp.php?op=w_ticket_asignado", {tick_id : tick_id}, function (data) {
+
+            });
+
+            swal("Correcto!", "Asignado Correctamente", "success"); */
 
             $("#modalasignar").modal('hide');
-
-            
             $('#ticket_data').DataTable().ajax.reload();
-
-
-
         }
     });
 }

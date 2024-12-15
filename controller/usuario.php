@@ -6,10 +6,10 @@
     switch($_GET["op"]){
         case "guardaryeditar":
             if(empty($_POST["usu_id"])){       
-                $usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);     
+                $usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_telf"]);     
             }
             else {
-                $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
+                $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_telf"]);
             }
         break;
 
@@ -22,6 +22,7 @@
                 $sub_array[] = $row["usu_ape"];
                 $sub_array[] = $row["usu_correo"];
                 $sub_array[] = $row["usu_pass"];
+                $sub_array[] = $row["usu_telf"];
 
                 if ($row["rol_id"]=="1"){
                     $sub_array[] = '<span class="label label-pill label-success">Usuario</span>';
@@ -57,6 +58,7 @@
                     $output["usu_correo"] = $row["usu_correo"];
                     $output["usu_pass"] = $row["usu_pass"];
                     $output["rol_id"] = $row["rol_id"];
+                    $output["usu_telf"] = $row["usu_telf"];
                 }
                 echo json_encode($output);
             }   

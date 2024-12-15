@@ -37,9 +37,12 @@ $(document).ready(function() {
 
         $.post("../../controller/subcategoria.php?op=combo",{cat_id : cat_id},function(data, status){
             console.log(data);
-            $('#cats_id').html('');
             $('#cats_id').html(data);
         });
+    });
+
+    $.post("../../controller/prioridad.php?op=combo",function(data, status){
+        $('#prio_id').html(data);
     });
 
 });
@@ -47,7 +50,7 @@ $(document).ready(function() {
 function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData($("#ticket_form")[0]);
-    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cats_id').val() == 0 || $('#cat_id').val() == 0){
+    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cats_id').val() == 0 || $('#cat_id').val() == 0 || $('#prio_id').val() == 0){
         swal("Advertencia!", "Campos Vacios", "warning");
     }else{
         var totalfiles = $('#fileElem').val().length;
